@@ -53,7 +53,7 @@ public class TestBaidu {
         urls = new ArrayList<>();
         names = new ArrayList<>();
         try {
-            workbook=Workbook.getWorkbook(new File("/Users/mengfanbo/Desktop/大三下/软件测试技术/lab2/软件测试名单.xls"));
+            workbook=Workbook.getWorkbook(new File("C:\\lab2\\软件测试名单.xls"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BiffException e) {
@@ -144,39 +144,6 @@ public class TestBaidu {
     public static void close(){
         //最后一步：关闭资源
         workbook.close();
-    }
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-    private String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
-        }
     }
 }
 
